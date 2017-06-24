@@ -11,4 +11,5 @@ docker run --name sshd -d \
   -p 2200:22 \
   -e "PUBLICKEY=$PUBLICKEY" \
   -e "KEYONLY=true" \
+  -e "HOSTCHECK=false" \
   "$IMGNAME:$IMGVERSION"
