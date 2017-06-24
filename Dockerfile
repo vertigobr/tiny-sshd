@@ -4,7 +4,7 @@ LABEL maintainer andre@vertigo.com.br
 
 ADD src/*.sh /opt/
 
-RUN apk --update add openssh sudo shadow && \
+RUN apk --update add openssh sudo shadow python && \
     adduser -D -u 5001 user && \
     usermod -G wheel user && \
     echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
