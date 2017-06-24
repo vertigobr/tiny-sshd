@@ -15,6 +15,12 @@ else
   echo "enabling password authentication..."
   sed "s/^PasswordAuthentication.*/PasswordAuthentication yes/g" -i /etc/ssh/sshd_config
 fi
+# copies public key if non-empty
+if [ ! -z "$PUBLICKEY" ]; then
+  echo "Adjusting public key..."
+  echo "$PUBLICKEY" > /home/user/.ssh/authorized_keys
+  chmod 600 /home/user/.ssh/authorized_keys
+fi
 # fix owner
 chown -R user:wheel /home/user/.ssh
 exec /usr/sbin/sshd -D -e
