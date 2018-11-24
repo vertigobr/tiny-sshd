@@ -37,4 +37,13 @@ docker run --name sshd -d \
   vertigo/tiny-sshd:alpine
 ```
 
+## Utility scripts
+
+Simple run sshd:
+
+```sh
+./sshd.sh
+```
+
+Runs a SSH server on port 2200 in which your PUBLICKEY (defaults to ~/.ssh/id_rsa.pub) will login as root.
 
