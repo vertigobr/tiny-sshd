@@ -1,8 +1,9 @@
-alpine
+latest
 #
 # Apenas a *primeira* linha deste arquivo é lida nos scripts de build
 # para determinar a tag da imagem a ser aplicada.
 #
 # histórico de tags: 
 #
+alpine
 latest

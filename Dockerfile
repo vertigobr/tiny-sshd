@@ -4,9 +4,10 @@ LABEL maintainer andre@vertigo.com.br
 
 ADD src/*.sh /opt/
 
-RUN apk --update add openssh sudo shadow python && \
+#RUN apk --update add openssh sudo shadow python && \
+RUN apk --update add openssh && \
     adduser -D -u 5001 user && \
-    usermod -G wheel user && \
+    addgroup user wheel && \
     echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     sed -i s/^#PasswordAuthentication.*/PasswordAuthentication\ yes/ /etc/ssh/sshd_config && \
     chmod +x /opt/*.sh && \
