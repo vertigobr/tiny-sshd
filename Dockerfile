@@ -2,7 +2,7 @@ FROM centos:latest
 
 LABEL maintainer andre@vertigo.com.br
 
-RUN yum install openssh-server openssh-clients passwd sudo -y && \
+RUN yum install openssh-server -y && \
     yum clean all
 
 ADD src/*.sh /opt/
