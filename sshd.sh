@@ -4,7 +4,8 @@ IMGVERSION=${IMGVERSION:-"latest"}
 IMGNAME=$(head -n 1 .IMGNAME)
 ENVBASH=$1
 ENVBASH=${ENVBASH:-"sh"}
-PUBLICKEY=`cat ~/.ssh/id_rsa.pub`
+#PUBLICKEY=`cat ~/.ssh/id_rsa.pub`
+PUBLICKEY=`cat ~/.ssh/id_ed25519.pub`
 docker stop sshd
 docker rm sshd
 docker run --name sshd -d \
