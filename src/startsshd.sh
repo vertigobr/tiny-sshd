@@ -37,6 +37,12 @@ else
   echo "host checking as default..."
   rm -f /home/user/.ssh/config
 fi
+
+if [ "$ALLOWTUNNEL" == "true" ]; then
+  echo "allowing tunnelling..."
+  sed "s/^AllowTcpForwarding.*/AllowTcpForwarding yes/g" -i /etc/ssh/sshd_config
+fi
+
 # fix owner
 chown -R user:wheel /home/user/.ssh
 exec /usr/sbin/sshd -D -e
